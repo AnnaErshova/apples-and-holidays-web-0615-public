@@ -67,26 +67,18 @@ def all_supplies_in_holidays(holiday_hash)
     holiday_hash[season].each do |holiday, supply|
       supplies = supply.join(", ")
       puts "  #{holiday.to_s.gsub("_"," ").split.map(&:capitalize).join(' ')}: #{supplies}"
-      # thank you, Stack Overflow! I have no real idea what &:capitalize does...
+      # thank you, Stack Overflow! I have no real idea what &:capitalize does yet...
     end
   end
 end
 
-
+# interestingly, I refer to 'holiday' more than once, but that still works. I guess it is an object_id situation again?
 def all_holidays_with_bbq(holiday_hash)
-  new_array =[]
-  holiday_hash.each do |season, supply|
-    supply.each do |holiday, supplies|
-      if supplies.include?("BBQ")
-        new_array << holiday
-      end
-    end
-
-  end
-  # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ" => BBQ is going to be in an array, so we will need to return that array
-  # get to the supply first then check
-  new_array
+    outcome_array = [] # initializes empty array into which results will be pushed once filtered
+    holiday_hash.each {|season, holiday| holiday.each { |holiday, supply| outcome_array << holiday if supply.include? ("BBQ")}}
+    outcome_array # calls on the array which now has filtered content
 end
+
+
 
  
