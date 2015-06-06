@@ -78,7 +78,7 @@ def all_holidays_with_bbq(holiday_hash)
     holiday_hash.each {|season, holiday| holiday.each { |holiday, supply| outcome_array << holiday if supply.include? ("BBQ")}}
     outcome_array # calls on the array which now has filtered content
 end
-
+# what really tripped me up here was using == instead of include because I did not realize the outcome would be arrays not strings
 
 
  
