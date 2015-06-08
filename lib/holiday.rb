@@ -84,6 +84,15 @@ def all_holidays_with_bbq(holiday_hash)
 end
 # what really tripped me up here was using == instead of include because I did not realize the outcome would be arrays not strings
 
+# More alternative code:
+# def all_holidays_with_bbq(holiday_hash)
+#    holiday_hash.collect do |season, holidays|
+#      holidays.select do |holiday_name, supplies|
+#        supplies.include? ("BBQ")
+#      end.keys
+#    end.flatten
+# end
+
 # Version from the lecture -- does not work?
 # holiday_hash.collect do |season,holidays|
 #     holidays.select do |holiday_name, supplies|
